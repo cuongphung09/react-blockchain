@@ -1,30 +1,36 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
 // import logoImg from "../img/logo.jpg";
 import { Card, Logo, Form, Input, Button, Error } from "../components/AuthForm";
 import { useAuth } from "../context/auth";
 
+
 function Login(props) {
-    const priArray = ['111', '222']
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        axios
+          .get("http://localhost:3000/account")
+          .then(result => setData(result.data));
+      }, []);
     const [isLoggedIn, setLoggedIn] = useState(false);
     const [isError, setIsError] = useState(false);
     const [privateKey, setprivateKey] = useState("");
     const { setAuthTokens } = useAuth();
-    const referer = props.location.state.referer || '/';
+    if(localStorage.getItem('tokens')){
+        props.history.push('/admin')
+    }
+    
     function postLogin() {
-        if(priArray.indexOf(privateKey)>=0){
-            setAuthTokens('login');
+        if (data.map(e=>e.privateKey).indexOf(privateKey) >= 0) {
+            setAuthTokens(privateKey);
             setLoggedIn(true);
-        }else{
+        } else {
             setIsError(true);
         }
 
     }
 
-    if (isLoggedIn) {
-        return <Redirect to={referer} />;
-      }
     return (
         <Card>
             <Form>

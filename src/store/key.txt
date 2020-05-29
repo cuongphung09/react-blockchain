@@ -1,0 +1,10 @@
+Private Key:  db97cd2cfe74b3a24da25d2d9afbde3cda0169b2768e49c44f918ac2f5368549
+Public Keey:  04d4930dd8b90f98501b0224cab6283aaab45a84a26cb578842f6768a1ca317af4aecec1cb29045d42045207224cb91ced44f6db8c38bb1d3666f64776b70929d0
+Private Key:  0d620f8857237ade2269ee459a0aca38ad70d790913fb308d96caa3dd5c3579a
+Public Keey:  045bf3d444340408c590eef28c2a2573d69427e2364898ccdd00a02e8a46aa29471c9627bc49f05bdf6cdcf24d7f94461bf95fe693c9076e2f37a9f67b03eca2f6
+  // const EC = require('elliptic').ec;
+  // const ec = new EC('secp256k1');
+
+  // const key = ec.genKeyPair();
+  // const publicKey = key.getPublic('hex');
+  // const privateKey = key.getPrivate('hex');
