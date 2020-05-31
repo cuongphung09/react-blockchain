@@ -1,14 +1,46 @@
 import React from "react";
-const EC = require('elliptic').ec;
-const ec = new EC('secp256k1');
+import { Card } from "antd";
+const EC = require("elliptic").ec;
+const ec = new EC("secp256k1");
+
 function Home(props) {
-  return <div>
-    {
-      ec.keyFromPrivate('1111').getPublic('hex')
-    }
-
-  </div>;
-
+  return (
+    <div style={{ margin: 10, flexDirection: 'row', flex: 1,}}>
+      <p
+        style={{
+          fontSize: 40,
+          fontWeight: 'bold',
+          fontFamily:'Lucida Console'
+        }}
+      >
+        MY COIN WALLET
+      </p>
+      <div style={{ display: 'flex',justifyContent: 'flex-start',}}>
+        <Card
+          title="Create a new wallet"
+          headStyle={{color: 'white'}}
+          style={{ width: 300, marginRight: 10, backgroundColor: '#5A78F0' }}
+          onClick={() => {
+            props.history.push("/signup");
+          }}
+        >
+          <p style={{color:'white'}}>Create your own private key and use it for login</p>
+          <h1 style={{color:'white'}}>Get started ➜</h1>
+        </Card>
+        <Card
+          title="Access my wallet"
+          headStyle={{color: 'white'}}
+          style={{ width: 300, backgroundColor: '#05C0A5' }}
+          onClick={() => {
+            props.history.push("/login");
+          }}
+        >
+          <p style={{color:'white'}}>Create your own private key and use it for login</p>
+          <h1 style={{color:'white'}}>Access now ➜</h1>
+        </Card>
+      </div>
+    </div>
+  );
 }
 
 export default Home;
