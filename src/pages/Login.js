@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 // import logoImg from "../img/logo.jpg";
-import { Card, Logo, Form, Error } from "../components/AuthForm";
+import { Card, Form, Error } from "../components/AuthForm";
 import { useAuth } from "../context/auth";
 import { Input, Button } from "antd";
 function Login(props) {
@@ -48,9 +48,9 @@ function Login(props) {
             setprivateKey(e.target.value);
           }}
           placeholder="enter private key"
-          style={{maxWidth: 300}}
+          style={{ maxWidth: 300 }}
         />
-        
+        <br />
         <Button
           type="primary"
           onClick={postLogin}
@@ -62,7 +62,7 @@ function Login(props) {
       </Form>
       <Link to="/signup">Don't have an account?</Link>
       {isError && (
-        <Error><p style={{color: 'red'}}>The username or password provided were incorrect!</p></Error>
+        <Error><p style={{ color: 'red' }}>The username or password provided were incorrect!</p></Error>
       )}
     </Card>
   );

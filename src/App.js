@@ -1,12 +1,11 @@
-import React, { useState,useEffect } from "react";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Admin from './pages/Admin';
 import Login from "./pages/Login";
 import Signup from './pages/Signup';
 import { AuthContext } from "./context/auth";
 import PrivateRoute from './PrivateRoute';
-import axios from "axios";
 
 function App(props) {
   const existingTokens = JSON.parse(localStorage.getItem("tokens"));
@@ -16,12 +15,12 @@ function App(props) {
     localStorage.setItem("tokens", JSON.stringify(data));
     setAuthTokens(data);
   }
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/account")
-      .then((result) => setData(result.data))
-  }, []);
+  // const [data, setData] = useState([]);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:3000/account")
+  //     .then((result) => setData(result.data))
+  // }, []);
   // props.location.state =data;
   // console.log(data)
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "antd";
-const EC = require("elliptic").ec;
-const ec = new EC("secp256k1");
+// const EC = require("elliptic").ec;
+// const ec = new EC("secp256k1");
 
 function Home(props) {
   return (
