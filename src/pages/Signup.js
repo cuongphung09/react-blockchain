@@ -48,9 +48,9 @@ function Signup() {
         <Button type="primary" onClick={generate} shape="round" style={{ width: 300 }}>
           Generate Private Key
         </Button>
-        <label>Your private key is: {save}</label>
+        <label>{save!==""?`Your private key is: ${save}`:""}</label>
       </Form>
-      <Link to="/login">Already have an account?</Link>
+      <Link to="/login">{save!==""?`Access to your account`:"Already have an account?"}</Link>
     </Card>
   );
 }

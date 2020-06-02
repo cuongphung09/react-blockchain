@@ -78,7 +78,7 @@ function Admin(props) {
         height: 30,
         alignItems: "center",
         alignSelf: "center",
-        margin: 10,
+        marginBottom: 70,
     };
     return (
         <div style={{}}>
@@ -107,9 +107,9 @@ function Admin(props) {
                     hoverable={true}
                 >
                     <label style={{ fontSize: 30, color: "white" }}>Address</label>
-                    <input disabled={"disabled"} style={{ color: "white" }} value={myAcc[0].address}>
-
-                    </input>
+                    <p disabled={"disabled"} style={{ color: "white" }} >
+                        {myAcc[0].address}
+                    </p>
                     <br />
                 </Card>
                 <Card
@@ -175,7 +175,7 @@ function Admin(props) {
                 >
                     {data.map((item) => {
                         return (
-                            <Option value={item.address} key={item.id}>
+                            <Option value={item.address} key={item.id} disabled={item.address === myAcc[0].address ?true: false}>
                                 {item.address === myAcc[0].address ? `My account: ${item.address}` : item.address}
                             </Option>
                         );
